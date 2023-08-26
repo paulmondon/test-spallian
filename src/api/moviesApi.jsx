@@ -24,6 +24,10 @@ export async function getRandomWatch(criteria) {
       totalPages = 500;
     }
 
+    if (totalPages === 0) {
+      return null;
+    }
+
     while (true) {
       const randomPage = Math.floor(Math.random() * totalPages) + 1;
       const response = await axios.get(`${BASE_URL}/discover/${criteria.contentType}`, {
@@ -46,15 +50,11 @@ export async function getRandomWatch(criteria) {
         return randomMovie;
       }
     }
-
-    return null;
   } catch (error) {
     console.error('Error fetching random movie:', error);
     return null;
   }
 }
-
-
 
 export async function getWatchDetails(criteria, id) {
   try {

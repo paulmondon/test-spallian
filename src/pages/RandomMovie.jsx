@@ -63,45 +63,49 @@ function RandomMovie() {
             {isFetching ? (
                 <AnimationLoading />
             ) : (
-            <div className="movie-details">
-                <div className="movie-card" >
-                    <div className="movie-image" onClick={handleCardClick}>
-                        <div className="image-overlay"></div>
-                        <div className='details'>
-                            <div className="details-card">
-                                <p>Année : {movie?.release_date?.substring(0, 4) || movie?.first_air_date?.substring(0, 4)}</p>
-                            </div>
-                            <div className="details-card">
-                                <p>Note : {movie?.vote_average}/10</p>
-                            </div>
-                        </div>
-                        <div className="title">
-                            <h3>{movie.title || movie.name}</h3>
-                        </div>
-                        <div className='overview'>
-                            <p>{movie.overview.substring(0, 60)}...</p>
-                        </div>
+                <div className="movie-details">
+                    {movie ? (
+                        <div className="movie-card" >
+                            <div className="movie-image" onClick={handleCardClick}>
+                                <div className="image-overlay"></div>
+                                <div className='details'>
+                                    <div className="details-card">
+                                        <p>Année : {movie?.release_date?.substring(0, 4) || movie?.first_air_date?.substring(0, 4)}</p>
+                                    </div>
+                                    <div className="details-card">
+                                        <p>Note : {movie?.vote_average}/10</p>
+                                    </div>
+                                </div>
+                                <div className="title">
+                                    <h3>{movie.title || movie.name}</h3>
+                                </div>
+                                <div className='overview'>
+                                    <p>{movie.overview.substring(0, 60)}...</p>
+                                </div>
 
-                        <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={movie.title || movie.name} />
-                    </div>
-                    <div className="add-to-watchlist">
-                        {isInLocalStorageWatchlist(movie) ? (
-                            <div>
-                                <span>Ajouté</span>
+                                <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={movie.title || movie.name} />
                             </div>
-                        ) : (
-                            <div>
-                                <button onClick={handleDislike} disabled={isDisliking} className="dislike-button circle-button">
-                                    <FontAwesomeIcon icon={faTimes} className="icon dislike-icon" />
-                                </button>
-                                <button onClick={() => handleAddToWatchlist(movie)} disabled={isAdding} className="like-button circle-button">
-                                    <FontAwesomeIcon icon={faHeart} className="icon like-icon" />
-                                </button>
+                            <div className="add-to-watchlist">
+                                {isInLocalStorageWatchlist(movie) ? (
+                                    <div>
+                                        <span>Ajouté</span>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <button onClick={handleDislike} disabled={isDisliking} className="dislike-button circle-button">
+                                            <FontAwesomeIcon icon={faTimes} className="icon dislike-icon" />
+                                        </button>
+                                        <button onClick={() => handleAddToWatchlist(movie)} disabled={isAdding} className="like-button circle-button">
+                                            <FontAwesomeIcon icon={faHeart} className="icon like-icon" />
+                                        </button>
+                                    </div>
+                                )}
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    ) : (
+                        <p>Pas de film avec ces paramètres.</p>
+                    )}
                 </div>
-            </div>
             )}
             {showModal && <ModalDetails movie={movieDetails} onClose={handleCloseModal} />}
         </div>
