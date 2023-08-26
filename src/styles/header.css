@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #FDEDAD;
+  color: #F5F1ED;
+}
+
+.app-title {
+  font-size: 36px;
+  margin: 0;
+  padding-right: 20px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.logo img {
+  width: 70px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ab1313;
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a:hover {
+  color: #b38282;
+}
+
+.nav-links a svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .app-title {
+      margin-bottom: 10px;
+  }
+
+  .nav-links {
+      margin-top: 10px;
+  }
+
+  .nav-links a {
+      margin: 5px 0;
+  }
+}

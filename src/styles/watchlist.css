@@ -1,0 +1,87 @@
+.watchlist {
+    min-height: 100vh;
+  }
+  
+  .watchlist h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .watchlist-movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .watchlist-movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    height: 500px;
+    width: 300px;
+  }
+  
+  .watchlist-movie-card .movie-image {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 100%;
+  }
+  
+  .watchlist-movie-card .details {
+    display: flex;
+    position: absolute;
+    bottom: 16%;
+    left: 5px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .watchlist-movie-card .title {
+    position: absolute;
+    bottom: 25%;
+    left: 5px;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 10px;
+    text-align: start;
+    overflow: hidden;
+  }
+  
+  .watchlist-movie-card .overview {
+    position: absolute;
+    bottom: 0px;
+    color: white;
+    padding: 5px 10px;
+    text-align: start;
+    overflow: hidden;
+  }
+  
+  .watchlist-movie-card .platforms {
+    display: flex;
+    position: absolute;
+    bottom: 23%;
+    left: 5px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+.watchlist-movie-card button {
+  background-color: #ab1313;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.watchlist-movie-card button:hover {
+  background-color: #ab1313;
+  transform: scale(1.05);
+}

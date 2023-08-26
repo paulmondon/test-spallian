@@ -1,0 +1,146 @@
+.movie-details {
+    padding: 20px;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    height: 500px;
+}
+
+.movie-image {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%; 
+    background: linear-gradient(transparent, rgba(0, 0, 0, 10)); /* Add gradient overlay */
+}
+
+.details {
+    display: flex;
+    position: absolute;
+    bottom: 16%;
+    left: 5px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.details-card {
+    background-color: rgba(175, 171, 171, 0.6);
+    color: white;
+    padding: 0px 10px;
+    font-size: 12px;
+    border-radius: 30px;
+    display: flex;
+    height: 25px;
+    width: auto;
+    margin-right: 4px;
+}
+
+.details-card p {
+    font-size: 10px;
+    align-self: center;
+}
+
+
+.title {
+    position: absolute;
+    bottom: 18%;
+    left: 5px;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 10px;
+    text-align: start;
+    overflow: hidden;
+}
+
+.overview {
+    position: absolute;
+    bottom: 0px;
+    color: white;
+    padding: 5px 10px;
+    text-align: start;
+    overflow: hidden;
+}
+
+.movie-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.movie-info {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.add-to-watchlist {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 16px;
+    background-color: #ab1313;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.dislike-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.circle-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid rgba(175, 171, 171, 0.6);
+    border-radius: 50%;
+    background-color: rgba(250, 248, 248, 0.6);
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.dislike-icon {
+    color: red;
+}
+
+.like-icon {
+    color: green;
+}
