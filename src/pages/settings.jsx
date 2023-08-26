@@ -99,7 +99,7 @@ function Settings() {
                 <h2 className='section-title'>On regarde quoi ce soir ?</h2>
                 <form className='section-form' onSubmit={handleSubmit}>
                     <div className='section'>
-                        <h3 className='section-title'>Pays</h3>
+                        <h3 className='section-title'>Lieu actuel</h3>
                         <div className='card'>
                             <select
                                 id="country"

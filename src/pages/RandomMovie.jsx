@@ -103,7 +103,9 @@ function RandomMovie() {
                             </div>
                         </div>
                     ) : (
-                        <p>Pas de film avec ces paramètres.</p>
+                        <div className="no-movie-message">
+                            <p>Pas de film avec ces paramètres. 😔</p>
+                        </div>
                     )}
                 </div>
             )}
