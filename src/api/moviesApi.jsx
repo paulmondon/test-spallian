@@ -5,12 +5,32 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 export async function getRandomWatch(criteria) {
   try {
+    const response = await axios.get(`${BASE_URL}/discover/${criteria.contentType}`, {
+      params: {
+        api_key: API_KEY,
+        language: 'fr-FR',
+        page: Math.floor(Math.random() * 500) + 1,
+        with_genres: criteria.selectedGenres ? criteria.selectedGenres.join('|') : null,
+        "vote_average.gte": criteria.vote_gte ? criteria.vote_gte : null,
+        "primary_release_date.gte": criteria.release_gte,
+        "primary_release_date.lte": criteria.release_lte,
+        watch_region: criteria.country,
+        with_watch_providers: criteria.platforms ? criteria.platforms.join("|") : null,
+      },
+    });
+
+    let totalPages = response.data.total_pages;
+    if (totalPages > 500) {
+      totalPages = 500;
+    }
+
     while (true) {
+      const randomPage = Math.floor(Math.random() * totalPages) + 1;
       const response = await axios.get(`${BASE_URL}/discover/${criteria.contentType}`, {
         params: {
           api_key: API_KEY,
           language: 'fr-FR',
-          page: Math.floor(Math.random() * 500) + 1,
+          page: randomPage,
           with_genres: criteria.selectedGenres ? criteria.selectedGenres.join('|') : null,
           "vote_average.gte": criteria.vote_gte ? criteria.vote_gte : null,
           "primary_release_date.gte": criteria.release_gte,
@@ -26,11 +46,14 @@ export async function getRandomWatch(criteria) {
         return randomMovie;
       }
     }
+
+    return null;
   } catch (error) {
     console.error('Error fetching random movie:', error);
     return null;
   }
 }
+
 
 
 export async function getWatchDetails(criteria, id) {

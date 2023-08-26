@@ -108,14 +108,18 @@ function Settings() {
                                 onChange={handleInputChange}
                                 className='input-select'
                             >
-                                {countries.map((country) => (
-                                    <option key={country.iso_3166_1} value={country.iso_3166_1}>
-                                        {country.native_name}
-                                    </option>
-                                ))}
+                                {countries
+                                    .slice()
+                                    .sort((a, b) => a.native_name.localeCompare(b.native_name))
+                                    .map((country) => (
+                                        <option key={country.iso_3166_1} value={country.iso_3166_1}>
+                                            {country.native_name}
+                                        </option>
+                                    ))}
                             </select>
                         </div>
                     </div>
+
 
 
                     <div className='section'>
